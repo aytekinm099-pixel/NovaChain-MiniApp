@@ -69,7 +69,24 @@ tonConnectUI.onStatusChange(async (wallet) => {
 
         // Şimdilik örnek değerler
         novaBalance.innerText = "0 NOVA";
+        try {
+    const response = await fetch(
+        `https://toncenter.com/api/v2/getAddressBalance?address=${address}`
+    );
+
+    const data = await response.json();
+
+    if (data.ok) {
+        const balance = (Number(data.result) / 1000000000).toFixed(2);
+        gramBalance.innerText = balance + " GRAM";
+    } else {
         gramBalance.innerText = "0 GRAM";
+    }
+
+} catch (error) {
+    console.error(error);
+    gramBalance.innerText = "0 GRAM";
+}
 
     } else {
 
