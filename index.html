@@ -6,9 +6,33 @@
     <title>NovaChain Mini App</title>
 
     <link rel="stylesheet" href="style.css">
+    
+<script>
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: "https://novachain-miniapp.aytekinm099.workers.dev/tonconnect-manifest.json",
+    buttonRootId: "ton-connect"
+});
 
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-</head>
+const walletInfo = document.createElement("div");
+walletInfo.style.marginTop = "20px";
+walletInfo.style.color = "white";
+walletInfo.style.fontSize = "16px";
+document.querySelector(".container").appendChild(walletInfo);
+
+tonConnectUI.onStatusChange(wallet => {
+    if (wallet) {
+        const address = wallet.account.address;
+
+        walletInfo.innerHTML = `
+            <h3>✅ Wallet Connected</h3>
+            <p>${address}</p>
+        `;
+    } else {
+        walletInfo.innerHTML = "";
+    }
+});
+</script>
+    
 
 <body>
 
