@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +49,6 @@
     </div>
 
     <!-- Buttons -->
-
     <button id="claimButton">
         🎁 Claim Airdrop
     </button>
@@ -77,13 +75,13 @@
 
 <!-- TON Connect Init -->
 <script>
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+window.tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: "https://novachain-miniapp.aytekinm099.workers.dev/tonconnect-manifest.json",
     buttonRootId: "ton-connect"
 });
 </script>
 
-<!-- Main Script -->
+<!-- Script -->
 <script src="script.js"></script>
 
 </body>
