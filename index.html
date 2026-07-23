@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NovaChain Mini App</title>
+    <title>NovaChain Mini App</title>
 
-<link rel="stylesheet" href="style.css">
-
-<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>🚀 NovaChain</h1>
+        <h1>🚀 NovaChain</h1>
 
-<p>TON Blockchain üzerindeki NovaChain'e hoş geldiniz.</p>
+        <p>TON Blockchain üzerindeki NovaChain'e hoş geldiniz.</p>
 
-<div id="ton-connect"></div>
+        <div id="ton-connect"></div>
 
-<div id="wallet-info"></div>
+        <div class="card">
+            <h3>👛 Wallet</h3>
+            <p id="wallet-address">Bağlı Değil</p>
+        </div>
 
-<div class="card">
-<h3>👛 Wallet</h3>
-<p id="wallet-address">Bağlı Değil</p>
-</div>
+        <div class="card">
+            <h3>💰 GRAM Balance</h3>
+            <p id="gram-balance">0 GRAM</p>
+        </div>
 
-<div class="card">
-<h3>💰 GRAM Balance</h3>
-<p id="gram-balance">0 GRAM</p>
-</div>
+        <div class="card">
+            <h3>💎 NOVA Balance</h3>
+            <p id="nova-balance">0 NOVA</p>
+        </div>
 
-<div class="card">
-<h3>💎 NOVA Balance</h3>
-<p id="nova-balance">0 NOVA</p>
-</div>
+        <button id="claimButton">
+            🎁 Claim Airdrop
+        </button>
 
-<button id="claimButton">
-🎁 Claim Airdrop
-</button>
+    </div>
 
-</div>
+    <!-- TON Connect -->
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 
-<script src="script.js"></script>
+    <!-- TON Library -->
+    <script src="https://unpkg.com/ton@15/dist/ton.js"></script>
+
+    <!-- App -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
