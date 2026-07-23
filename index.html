@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -14,32 +15,32 @@
 
 <div class="container">
 
-<h1>🚀 NovaChain</h1>
+    <h1>🚀 NovaChain</h1>
 
-<p>GRAM üzerindeki NovaChain'e hoş geldiniz.</p>
+    <p>TON Blockchain üzerindeki NovaChain'e hoş geldiniz.</p>
 
-<div id="ton-connect"></div>
+    <div id="ton-connect"></div>
 
-<div id="wallet-info" style="margin-top:20px;color:white;"></div>
+    <div id="wallet-info" style="margin:20px 0;color:#fff;"></div>
 
-<div class="card">
-    <div class="title">👛 Wallet</div>
-    <div class="value" id="wallet-address">Bağlı Değil</div>
-</div>
+    <div class="card">
+        <div class="title">👛 Wallet</div>
+        <div class="value" id="wallet-address">Bağlı Değil</div>
+    </div>
 
-<div class="card">
-    <div class="title">💎 NOVA Balance</div>
-    <div class="value" id="nova-balance">0 NOVA</div>
-</div>
+    <div class="card">
+        <div class="title">💎 NOVA Balance</div>
+        <div class="value" id="nova-balance">0 NOVA</div>
+    </div>
 
-<div class="card">
-    <div class="title">💰 GRAM Balance</div>
-    <div class="value" id="gram-balance">0 GRAM</div>
-</div>
+    <div class="card">
+        <div class="title">💰 GRAM Balance</div>
+        <div class="value" id="gram-balance">0 GRAM</div>
+    </div>
 
-<button class="button">
-🎁 Claim Airdrop
-</button>
+    <button class="button">
+        🎁 Claim Airdrop
+    </button>
 
 </div>
 
@@ -51,33 +52,32 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 
 const walletInfo = document.getElementById("wallet-info");
 const walletAddress = document.getElementById("wallet-address");
-const gramBalance = document.getElementById("gram-balance");
 const novaBalance = document.getElementById("nova-balance");
+const gramBalance = document.getElementById("gram-balance");
 
 tonConnectUI.onStatusChange(async (wallet) => {
 
-    if(wallet){
+    if (wallet) {
 
         const address = wallet.account.address;
 
         walletInfo.innerHTML = "<h3>✅ Wallet Connected</h3>";
 
         walletAddress.innerText =
-            address.substring(0,8) +
-            "..." +
+            address.substring(0,8) + "..." +
             address.substring(address.length-6);
 
         // Şimdilik örnek değerler
-        gramBalance.innerText = "0 GRAM";
         novaBalance.innerText = "0 NOVA";
+        gramBalance.innerText = "0 GRAM";
 
-    }else{
+    } else {
 
         walletInfo.innerHTML = "";
 
         walletAddress.innerText = "Bağlı Değil";
-        gramBalance.innerText = "0 GRAM";
         novaBalance.innerText = "0 NOVA";
+        gramBalance.innerText = "0 GRAM";
 
     }
 
