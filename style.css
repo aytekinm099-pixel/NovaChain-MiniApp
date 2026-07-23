@@ -1,0 +1,28 @@
+body{
+    margin:0;
+    background:#050b18;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+.container{
+    margin-top:80px;
+}
+
+.logo{
+    width:120px;
+    border-radius:50%;
+    box-shadow:0 0 20px #00bfff;
+}
+
+button{
+    margin-top:25px;
+    padding:15px 35px;
+    background:#0099ff;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+}
