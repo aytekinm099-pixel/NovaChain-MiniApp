@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaChain Mini App</title>
 
-<title>NovaChain</title>
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
-
-<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>🚀 NovaChain</h1>
+    <h1>🚀 NovaChain</h1>
 
-<p>TON üzerindeki NovaChain'e hoş geldiniz.</p>
+    <p>TON üzerindeki NovaChain'e hoş geldiniz.</p>
 
-<div id="ton-connect"></div>
+    <div id="ton-connect"></div>
 
 </div>
 
 <script>
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: "https://novachain-miniapp.<KULLANICI_ADIN>.workers.dev/tonconnect-manifest.json",
+    manifestUrl: "https://novachain-miniapp.aytekinm099.workers.dev/tonconnect-manifest.json",
     buttonRootId: "ton-connect"
+});
+
+tonConnectUI.onStatusChange(wallet => {
+    if (wallet) {
+        console.log("Wallet connected:", wallet.account.address);
+        alert("NovaChain'e başarıyla bağlandınız!");
+    }
 });
 </script>
 
