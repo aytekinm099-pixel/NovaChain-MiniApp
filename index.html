@@ -1,105 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaChain Mini App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>NovaChain Mini App</title>
 
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>🚀 NovaChain</h1>
+<h1>🚀 NovaChain</h1>
 
-    <p>TON Blockchain üzerindeki NovaChain'e hoş geldiniz.</p>
+<p>TON Blockchain üzerindeki NovaChain'e hoş geldiniz.</p>
 
-    <div id="ton-connect"></div>
+<div id="ton-connect"></div>
 
-    <div id="wallet-info" style="margin:20px 0;color:#fff;"></div>
+<div id="wallet-info"></div>
 
-    <div class="card">
-        <div class="title">👛 Wallet</div>
-        <div class="value" id="wallet-address">Bağlı Değil</div>
-    </div>
+<div class="card">
+<h3>👛 Wallet</h3>
+<p id="wallet-address">Bağlı Değil</p>
+</div>
 
-    <div class="card">
-        <div class="title">💎 NOVA Balance</div>
-        <div class="value" id="nova-balance">0 NOVA</div>
-    </div>
+<div class="card">
+<h3>💰 GRAM Balance</h3>
+<p id="gram-balance">0 GRAM</p>
+</div>
 
-    <div class="card">
-        <div class="title">💰 GRAM Balance</div>
-        <div class="value" id="gram-balance">0 GRAM</div>
-    </div>
+<div class="card">
+<h3>💎 NOVA Balance</h3>
+<p id="nova-balance">0 NOVA</p>
+</div>
 
-    <button class="button">
-        🎁 Claim Airdrop
-    </button>
+<button id="claimButton">
+🎁 Claim Airdrop
+</button>
 
 </div>
 
-<script>
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: "https://novachain-miniapp.aytekinm099.workers.dev/tonconnect-manifest.json",
-    buttonRootId: "ton-connect"
-});
-
-const walletInfo = document.getElementById("wallet-info");
-const walletAddress = document.getElementById("wallet-address");
-const novaBalance = document.getElementById("nova-balance");
-const gramBalance = document.getElementById("gram-balance");
-
-tonConnectUI.onStatusChange(async (wallet) => {
-
-    if (wallet) {
-
-        const address = wallet.account.address;
-
-        walletInfo.innerHTML = "<h3>✅ Wallet Connected</h3>";
-
-        walletAddress.innerText =
-            address.substring(0,8) + "..." +
-            address.substring(address.length-6);
-
-        // Şimdilik örnek değerler
-        novaBalance.innerText = "0 NOVA";
-        try {
-    const response = await fetch(
-        `https://toncenter.com/api/v2/getAddressBalance?address=${address}`
-    );
-
-    const data = await response.json();
-
-    if (data.ok) {
-        const balance = (Number(data.result) / 1000000000).toFixed(2);
-        gramBalance.innerText = balance + " GRAM";
-    } else {
-        gramBalance.innerText = "0 GRAM";
-    }
-
-} catch (error) {
-    console.error(error);
-    gramBalance.innerText = "0 GRAM";
-}
-
-    } else {
-
-        walletInfo.innerHTML = "";
-
-        walletAddress.innerText = "Bağlı Değil";
-        novaBalance.innerText = "0 NOVA";
-        gramBalance.innerText = "0 GRAM";
-
-    }
-
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
