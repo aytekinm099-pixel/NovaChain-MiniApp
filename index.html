@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -23,6 +22,25 @@
 
     <div id="wallet-info" style="margin-top:20px;color:white;"></div>
 
+    <div class="card">
+        <div class="title">👛 Wallet</div>
+        <div class="value" id="wallet-address">Bağlı Değil</div>
+    </div>
+
+    <div class="card">
+        <div class="title">💎 NOVA Balance</div>
+        <div class="value" id="nova-balance">0 NOVA</div>
+    </div>
+
+    <div class="card">
+        <div class="title">💰 TON Balance</div>
+        <div class="value" id="ton-balance">0 TON</div>
+    </div>
+
+    <button class="button">
+        🎁 Claim Airdrop
+    </button>
+
 </div>
 
 <script>
@@ -32,6 +50,7 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 });
 
 const walletInfo = document.getElementById("wallet-info");
+const walletAddress = document.getElementById("wallet-address");
 
 tonConnectUI.onStatusChange(wallet => {
 
@@ -39,16 +58,18 @@ tonConnectUI.onStatusChange(wallet => {
 
         const address = wallet.account.address;
 
-        walletInfo.innerHTML = `
-            <h3>✅ Wallet Connected</h3>
-            <p>${address}</p>
-        `;
+        walletInfo.innerHTML = "<h3>✅ Wallet Connected</h3>";
+
+        walletAddress.innerText =
+            address.substring(0,8) +
+            "..." +
+            address.substring(address.length-6);
 
     } else {
 
-        walletInfo.innerHTML = `
-            <p>Cüzdan bağlı değil.</p>
-        `;
+        walletInfo.innerHTML = "";
+
+        walletAddress.innerText = "Bağlı Değil";
 
     }
 
