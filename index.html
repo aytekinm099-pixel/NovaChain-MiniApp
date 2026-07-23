@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>NovaChain Mini App</title>
 
     <link rel="stylesheet" href="style.css">
@@ -12,44 +10,72 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>🚀 NovaChain</h1>
+    <h1>🚀 NovaChain</h1>
 
-        <p>TON Blockchain üzerindeki NovaChain'e hoş geldiniz.</p>
+    <p class="subtitle">
+        TON Blockchain üzerindeki NovaChain'e hoş geldiniz.
+    </p>
 
-        <div id="ton-connect"></div>
+    <!-- Wallet Connect -->
+    <div id="ton-connect"></div>
 
-        <div class="card">
-            <h3>👛 Wallet</h3>
-            <p id="wallet-address">Bağlı Değil</p>
-        </div>
+    <!-- Wallet Card -->
+    <div class="card">
+        <h2>👛 Wallet</h2>
 
-        <div class="card">
-            <h3>💰 GRAM Balance</h3>
-            <p id="gram-balance">0 GRAM</p>
-        </div>
-
-        <div class="card">
-            <h3>💎 NOVA Balance</h3>
-            <p id="nova-balance">0 NOVA</p>
-        </div>
-
-        <button id="claimButton">
-            🎁 Claim Airdrop
-        </button>
-
+        <p id="wallet-address">
+            Wallet bağlı değil
+        </p>
     </div>
 
-    <!-- TON Connect -->
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+    <!-- GRAM Balance -->
+    <div class="card">
+        <h2>💰 GRAM Balance</h2>
 
-    <!-- TON Library -->
-    <script src="https://unpkg.com/ton@15/dist/ton.js"></script>
+        <p id="gram-balance">
+            0 GRAM
+        </p>
+    </div>
 
-    <!-- App -->
-    <script src="script.js"></script>
+    <!-- NOVA Balance -->
+    <div class="card">
+        <h2>💎 NOVA Balance</h2>
+
+        <p id="nova-balance">
+            0 NOVA
+        </p>
+    </div>
+
+    <!-- Buttons -->
+
+    <button id="claimButton">
+        🎁 Claim Airdrop
+    </button>
+
+    <button id="tasksButton">
+        📋 Tasks
+    </button>
+
+    <button id="referralButton">
+        👥 Referral
+    </button>
+
+    <button id="stakingButton">
+        🔒 Staking
+    </button>
+
+</div>
+
+<!-- TON Connect -->
+<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+
+<!-- TON Library -->
+<script src="https://unpkg.com/ton@15/dist/ton.js"></script>
+
+<!-- Script -->
+<script src="script.js"></script>
 
 </body>
-
 </html>
