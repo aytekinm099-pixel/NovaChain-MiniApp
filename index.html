@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NovaChain Mini App</title>
+
+<title>NovaChain</title>
 
 <link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 </head>
 
 <body>
@@ -14,13 +17,18 @@
 
 <h1>🚀 NovaChain</h1>
 
-<p>Welcome to NovaChain on TON</p>
+<p>TON üzerindeki NovaChain'e hoş geldiniz.</p>
 
-<button id="connect">Connect Wallet</button>
+<div id="ton-connect"></div>
 
 </div>
 
-<script src="script.js"></script>
+<script>
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: "https://novachain-miniapp.<KULLANICI_ADIN>.workers.dev/tonconnect-manifest.json",
+    buttonRootId: "ton-connect"
+});
+</script>
 
 </body>
 </html>
