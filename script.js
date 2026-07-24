@@ -53,4 +53,31 @@ async function init() {
     });
 }
 
-init();
+init();async function claimAirdrop() {
+
+    const wallet = window.tonConnectUI.wallet;
+
+    if (!wallet) {
+        alert("Önce cüzdanınızı bağlayın.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `https://novachain-api.aytekinm099.workers.dev/claim?address=${encodeURIComponent(wallet.account.address)}`
+        );
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert("🎉 500 NOVA başarıyla claim edildi!");
+        } else {
+            alert(data.error);
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("Claim sırasında hata oluştu.");
+    }
+}
